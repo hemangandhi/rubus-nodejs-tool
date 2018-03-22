@@ -1,0 +1,17 @@
+{
+  "name": "buses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "flatiron": "^0.4.3",
+    "nextbusjs": "^1.0.1",
+    "union": "^0.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
