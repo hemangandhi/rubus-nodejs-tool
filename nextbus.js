@@ -1,6 +1,6 @@
 function refreshData()
     {
-        x = 60;  // 5 Seconds
+        x = 30;  // 5 Seconds
         console.clear();
         // Do your thing here
         var rutgers = require('nextbusjs').client();
@@ -15,7 +15,6 @@ function refreshData()
                   rutgers.stopPredict('Hill Center', null, function (err, data) {
                      // data will contain:
                      //console.log(data);
-                     console.log(data);
 
                      for (var bus in data){
 
@@ -35,7 +34,7 @@ function refreshData()
                         //console.log(data[bus]["predictions"]);
                         console.log(time);
 
-                        console.log("\n\n")
+                     	console.log("");
 
                       }
                      }
