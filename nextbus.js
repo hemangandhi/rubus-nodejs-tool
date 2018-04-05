@@ -1,6 +1,6 @@
 function refreshData()
     {
-        x = 30;  // 5 Seconds
+        x = 30;  // 30 Seconds
         console.clear();
         // Do your thing here
         var rutgers = require('nextbusjs').client();
@@ -8,20 +8,14 @@ function refreshData()
                if (err) {
                   throw err;
                } else {
-                  rutgers.routePredict('a', null, function (err, data) {
-                     // data will contain:
 
-                  }, 'minutes');
                   rutgers.stopPredict('Hill Center', null, function (err, data) {
                      // data will contain:
                      //console.log(data);
 
                      for (var bus in data){
 
-                       if(data[bus]["predictions"] == null){
-
-                       }else{
-
+                       if(data[bus]["predictions"] != null){
 
                         console.log(data[bus]["title"]);
                         console.log(data[bus]["direction"]);
@@ -40,10 +34,6 @@ function refreshData()
                      }
 
                   }, 'minutes');
-                  var nearest = rutgers.closestStops(40.40264, -74.3840120);
-                  //{ 'Rutgers Student Center': 7,
-                  //  'Student Activities Center': 6,
-                  //  'Scott Hall': 5 }
                }
             });
         setTimeout(refreshData, x*1000);
