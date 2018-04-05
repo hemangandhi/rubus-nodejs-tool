@@ -1,41 +1,45 @@
-function refreshData()
-    {
-        x = 30;  // 30 Seconds
-        console.clear();
-        // Do your thing here
-        var rutgers = require('nextbusjs').client();
-            rutgers.cacheAgency('rutgers', function (err) {
-               if (err) {
-                  throw err;
-               } else {
+var rutgers = require('nextbusjs').client();
 
-                  rutgers.stopPredict('Hill Center', null, function (err, data) {
-                     // data will contain:
-                     //console.log(data);
+function refreshData() {
+  x = 30;  // 30 Seconds
+  // Do your thing here
+  rutgers.cacheAgency('rutgers', function (err) {
+    if (err) {
+      throw err;
+    } else {
 
-                     for (var bus in data){
+      function loop(){
+        rutgers.stopPredict('Hill Center', null, function (err, data) {
+          // data will contain:
+          //console.log(data);
+          console.clear();
 
-                       if(data[bus]["predictions"] != null){
+          for (var bus in data){
 
-                        console.log(data[bus]["title"]);
-                        console.log(data[bus]["direction"]);
-                        //console.console.log(data[bus]["predictions"]);
-                        var time = "";
-                        for(var min in data[bus]["predictions"]){
-                            time += (data[bus]["predictions"][min] + ' min, ')
+            if(data[bus]["predictions"] != null){
 
-                        }
-                        //console.log(data[bus]["predictions"]);
-                        console.log(time);
+              console.log(data[bus]["title"]);
+              console.log(data[bus]["direction"]);
+              //console.console.log(data[bus]["predictions"]);
+              var time = "";
+              for(var min in data[bus]["predictions"]){
+                time += (data[bus]["predictions"][min] + ' min, ')
 
-                     	console.log("");
+              }
+              //console.log(data[bus]["predictions"]);
+              console.log(time);
 
-                      }
-                     }
+              console.log("");
 
-                  }, 'minutes');
-               }
-            });
-        setTimeout(refreshData, x*1000);
+            }
+          }
+
+        }, 'minutes');
+      }
+
+      setTimeout(loop, x*1000);
     }
+  });
+}
+
 refreshData(); // execute function
