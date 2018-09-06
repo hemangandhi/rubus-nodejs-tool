@@ -33,11 +33,25 @@ function refreshData() {
 
             }
           }
+          console.log("");
+          console.log("Club meetings:");
+          console.log("FizzBuzz Interview Prep: Wed at 9pm");
+          console.log("RUMAD Mobile Dev: Wed at 8:30pm in Meltdown");
+          console.log("QFC Quantitative Finance: Tues and Thurs at 9:45pm on Livi");
+          console.log("COGS Creation of Games: Tues at 7pm");
+          console.log("WiCS Women in CS: Every other Wed at 9pm in Command Center");
+          console.log("IEEE Engineering Society: Wed at 8pm in BCC 116bc");
+          console.log("SWE Society of Women Engineers: Tues at 7pm in BCC 174");
+
 
         }, 'minutes');
+
+	      
+        setTimeout(loop, x*1000);
       }
 
-      setTimeout(loop, x*1000);
+
+      loop();
     }
   });
 }
