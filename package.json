@@ -6,6 +6,7 @@
   "dependencies": {
     "flatiron": "^0.4.3",
     "nextbusjs": "^1.0.1",
+    "request": "^2.88.0",
     "union": "^0.4.6"
   },
   "devDependencies": {},
